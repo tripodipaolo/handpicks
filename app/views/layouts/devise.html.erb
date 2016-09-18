@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stories</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/react_hot_assets' %>
+    <section class="hero is-fullheight">
+      <div class="hero-head">
+        <%= render 'shared/header' %>
+        <p class="notice"><%= notice %></p>
+        <% if alert.present? %>
+          <div class="notification is-danger"><%= alert %></div>
+        <% end %>
+      </div>
+      <div class="hero-body">
+        <%= yield %>
+      </div>
+    </section>
+  </body>
+</html>

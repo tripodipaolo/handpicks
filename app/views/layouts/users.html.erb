@@ -1,0 +1,71 @@
+<%= content_for(:body) do %>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container columns">
+        <article class="media user-card column is-8 is-offset-2">
+          <figure class="media-left">
+            <p class="image avatar--big">
+              <img src="<%= @user.avatar.url %>" alt="" class="avatar">
+            </p>
+          </figure>
+          <div class="media-content">
+            <h1 class="title"><%= @user.fullname %></h1>
+            <h2 class="subtitle"><%= @user.bio %></p>
+            <div class="level stats">
+              <div class="level-left has-text-centered">
+                <div class="level-item">
+                  <p><%= @user.followers(User).count %> followers</p>
+                </div>
+                <div class="level-item">
+                  <p><%= @user.followees(User).count %> following</p>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="level-item">
+                  <span class="icon">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                </div>
+                <div class="level-item">
+                  <span class="icon">
+                    <i class="fa fa-github"></i>
+                  </span>
+                </div>
+                <div class="level-item">
+                  <span class="icon">
+                    <i class="fa fa-medium"></i>
+                  </span>
+                </div>
+                <div class="level-item">
+                  <span class="icon">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <% if @user == current_user %>
+            <div class="media-right">
+              <%= link_to 'Edit', edit_user_registration_path, class: 'button is-medium' %>
+            </div>
+          <% else %>
+            <% if current_user.follows?(@user) %>
+              <%= link_to 'Unfollow', unfollow_user_path(@user), method: :delete %>
+            <% else %>
+              <%= link_to 'Follow', follow_user_path(@user), method: :post %>
+            <% end %>
+          <% end %>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="columns">
+    <div class="column is-8 is-offset-2">
+      <%= yield(:feed) %>
+    </div>
+  </div>
+<% end %>
+
+<%= render template: "layouts/application" %>

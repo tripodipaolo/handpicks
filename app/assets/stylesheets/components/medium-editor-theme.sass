@@ -1,0 +1,72 @@
+.medium-editor-element
+  outline: none
+
+.medium-toolbar-arrow-under:after
+  top: 40px
+  border-color: #69707a transparent transparent transparent
+
+.medium-toolbar-arrow-over:before
+  top: -8px
+  border-color: transparent transparent #69707a transparent
+
+.medium-editor-toolbar-save
+  display: none
+
+.medium-editor-toolbar-close
+  font-family: "Calibre Black"
+  font-size: 1.5rem
+
+.medium-editor-toolbar
+  background-color: #69707a
+  li
+    padding: 0
+    button
+      min-width: 50px
+      height: 40px
+      border: none
+      border-right: 1px solid #9ccea6
+      background-color: transparent
+      color: #fff
+      padding-top: 0.5rem
+      font-family: "Calibre Semibold"
+      font-size: 1.275rem
+      -webkit-transition: background-color .2s ease-in, color .2s ease-in
+      transition: background-color .2s ease-in, color .2s ease-in
+      &:hover
+        background-color: #4F545C
+        color: #fff
+    .medium-editor-button-active
+      background-color: #69707a
+      color: #fff
+    .medium-editor-button-last
+      border-right: none
+
+.medium-editor-toolbar-form
+  .medium-editor-toolbar-input
+    height: 30px
+    background: #69707a
+    color: #fff
+    border: 0
+    outline: none
+    font-size: 1.175rem
+    &::-webkit-input-placeholder
+      color: #fff
+      color: rgba(255, 255, 255, 0.8)
+    &:-moz-placeholder
+      color: #fff
+      color: rgba(255, 255, 255, 0.8)
+    &::-moz-placeholder
+      color: #fff
+      color: rgba(255, 255, 255, 0.8)
+    &:-ms-input-placeholder
+      color: #fff
+      color: rgba(255, 255, 255, 0.8)
+  a
+    color: #fff
+
+.medium-editor-toolbar-anchor-preview
+  background: #69707a
+  color: #fff
+
+.medium-editor-placeholder:after
+  color: #9ccea6

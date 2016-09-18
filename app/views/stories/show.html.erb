@@ -1,0 +1,47 @@
+<div class="container columns">
+  <div class="column is-8 is-offset-2">
+    <div class="level story-header">
+      <div class="level-left">
+        <div class="level-item">
+          <img src="<%= @story.user.avatar.url %>" alt="" class="avatar avatar--medium">
+        </div>
+        <div class="level-item">
+          <h3 class="story-author">
+            <%= @story.user.fullname %>
+          </h3>
+        </div>
+        <div class="level-item">
+          <span class="story-links-count">
+            <%= @story.links_count %> links
+          </span>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <span class="story-date">
+            <%= @story.published_at.strftime('%d %b') %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-8 is-offset-2">
+    <div class="story-body">
+      <div class="content">
+        <h1><%= @story.title %></h1>
+        <p><%= raw @story.content %></p>
+      </div>
+    </div>
+
+    <div class="story-links">
+      <div class="content">
+        <h5 class="heading">Links in this post</h5>
+
+        <%= react_component('BrowserLinksList', links: @story.links) %>
+      </div>
+    </div>
+  </div>
+</div>

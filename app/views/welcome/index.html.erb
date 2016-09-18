@@ -1,0 +1,50 @@
+<div class="hero-body">
+  <div class="container main-container has-text-centered">
+    <div class="header">
+      <h1 class="title logo">
+        Handpicks
+      </h1>
+      <h2 class="subtitle">
+        Your stories with links.
+      </h2>
+      <a class="button is-large">Start writing</a>
+    </div>
+
+    <% [
+        {author: "Zing Juo", links: 4, date: 'just now', title: 'The Apple-Google shift', avatar: 'nuraika'},
+        {author: "Casey Johnston", links: 7, date: '18 Jun', title: 'Ask a Swole Woman: Getting started', avatar: 'esthercrawford'},
+      ].each do |story| %>
+      <article class="media story-card">
+        <figure class="media-left">
+          <p class="image avatar--big">
+            <img class="avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/<%= story[:avatar] %>/128.jpg">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="level story-card-header">
+            <div class="level-left">
+              <h3 class="story-author"><%= story[:author] %></h3>
+              <span class="story-links-count"><%= "#{story[:links]} links" %></span>
+            </div>
+            <div class="level-right">
+              <span class="story-date"><%= story[:date] %></span>
+            </div>
+          </div>
+          <h3 class="story-title"><%= story[:title] %></h3>
+        </div>
+      </article>
+    <% end %>
+
+    <article class="media story-card story-card--placeholder">
+      <figure class="media-left">
+        <p class="image avatar--big avatar">
+        </p>
+      </figure>
+      <div class="media-content">
+        <h4 class="story-author">&nbsp;</h4>
+        <h3 class="story-title">&nbsp;</h3>
+      </div>
+    </article>
+
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<% content_for(:body) do %>
+  <div class="columns">
+    <div class="column is-8">
+      <%= yield(:feed) %>
+    </div>
+    <div class="column is-4">
+      <div class="side-list">
+        <div class="content">
+          <h4>Who to follow</h4>
+        </div>
+        <% @to_follow.each do |user| %>
+          <article class="media">
+            <figure class="media-left">
+              <p class="image avatar--medium">
+                <img class="avatar" src="<%= user.avatar.url %>">
+              </p>
+            </figure>
+
+            <div class="media-content">
+              <div class="content">
+                <span class="side-list-element-title"><%= user.fullname %></span><br>
+                <%= link_to 'Follow', follow_user_path(user), method: :post %>
+              </div>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= render template: "layouts/application" %>

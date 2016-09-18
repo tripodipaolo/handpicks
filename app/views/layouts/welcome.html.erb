@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stories</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/react_hot_assets' %>
+    <section class="home hero is-fullheight">
+      <div class="hero-head">
+        <header class="nav">
+          <div class="container">
+            <div class="nav-right nav-menu">
+              <%= link_to "Sign in", new_user_session_path, class: "nav-item is-active" %>
+            </div>
+          </div>
+        </header>
+        <% if notice.present? %>
+          <div class="notification"><%= notice %></div>
+        <% end %>
+        <% if alert.present? %>
+          <div class="notification is-danger"><%= alert %></div>
+        <% end %>
+      </div>
+      <%= yield %>
+    </section>
+  </body>
+</html>

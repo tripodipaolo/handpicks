@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="column is-one-third is-offset-one-third">
+    <div class="content">
+      <h1 class="has-text-centered">Sign in</h1>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.label :email, class: 'label' %>
+        <p class="control">
+          <%= f.email_field :email, autofocus: true, class: 'input' %>
+        </p>
+
+        <%= f.label :password, class: 'label' %>
+        <p class="control">
+          <%= f.password_field :password, autocomplete: "off", class: 'input' %>
+        </p>
+
+        <% if devise_mapping.rememberable? -%>
+          <p class="control">
+            <label class="checkbox">
+              <%= f.check_box :remember_me %>
+              Remember me
+            </label>
+          </p>
+          </p>
+        <% end -%>
+
+        <div class="actions">
+          <%= f.submit "Log in", class: 'button is-medium' %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

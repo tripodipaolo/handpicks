@@ -1,0 +1,16 @@
+<% content_for(:feed) do %>
+  <div class="tabs is-large">
+    <ul>
+      <li><%= link_to 'Stream', root_path %></li>
+      <li class="is-active"><%= link_to 'Bookmarks', bookmarks_path %></li>
+    </ul>
+  </div>
+
+  <div class="stream">
+    <p>Latest posts you bookmarked</p>
+
+    <div class="stories-stream">
+      <%= render partial: 'stories/story', collection: @feed %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,49 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="column is-one-third is-offset-one-third">
+        <div class="content">
+          <h1 class="has-text-centered">Sign up</h1>
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <%= f.label :fullname, class: 'label' %>
+              <p class="control">
+              <%= f.text_field :fullname, autofocus: true, class: 'input is-medium' %>
+            </p>
+
+            <%= f.label :bio, class: 'label' %>
+              <p class="control">
+              <%= f.text_area :bio, autofocus: true, class: 'input is-medium' %>
+            </p>
+
+            <%= f.label :email, class: 'label' %>
+            <p class="control">
+              <%= f.email_field :email, autofocus: true, class: 'input is-medium' %>
+            </p>
+
+            <%= f.label :password, class: 'label' %>
+            <p class="control">
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "off", class: 'input is-medium' %>
+            </p>
+
+            <%= f.label :password_confirmation, class: 'label' %>
+            <p class="control">
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'input is-medium' %>
+            </p>
+
+            <div class="actions">
+              <%= f.submit "Sign up", class: 'button is-large' %>
+            </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

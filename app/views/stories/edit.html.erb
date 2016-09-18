@@ -1,0 +1,5 @@
+<%= react_component('StoryEditor', id: @story.id,
+                                   title: @story.title,
+                                   text: @story.content,
+                                   user: @story.user,
+                                   lastSaved: @story.updated_at.strftime('%d %b %H:%M')) %>

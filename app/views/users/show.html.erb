@@ -1,0 +1,17 @@
+<% content_for(:feed) do %>
+  <div class="tabs is-large">
+    <ul>
+      <li class="is-active"><%= link_to 'Published', user_path(@user) %></li>
+      <% if @user == current_user %>
+      <li><%= link_to 'Drafts', drafts_user_path(@user) %></li>
+      <% end %>
+      <li><%= link_to 'Bookmarks', '#' %></li>
+    </ul>
+  </div>
+
+  <div class="stream">
+    <div class="stories-stream">
+      <%= render partial: 'stories/story', collection: @feed %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,28 @@
+<nav class="nav">
+  <div class="container">
+    <div class="nav-left">
+      <%= link_to 'Handpicks', root_path, class: 'nav-item is-brand' %>
+    </div>
+
+    <span class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+
+    <div class="nav-right nav-menu">
+      <div class="nav-item">
+        <p class="control">
+          <input class="input" type="text" placeholder="Search">
+        </p>
+      </div>
+      <% if user_signed_in? %>
+        <%= link_to 'Write a story', new_story_path, class: 'nav-item' %>
+        <%= link_to 'Log out', destroy_user_session_path, class: 'nav-item' %>
+        <%= link_to user_path(current_user), class: 'nav-item' do %>
+          <img src="<%= current_user.avatar.url %>" alt="" class="avatar avatar--small">
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</nav>

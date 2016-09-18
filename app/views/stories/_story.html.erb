@@ -1,0 +1,35 @@
+<div class="box story-card">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image avatar--medium">
+        <img class="avatar" src="<%= story.user.avatar.url %>">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="level story-card-header">
+        <div class="level-left">
+          <h3 class="story-author"><%= link_to story.user.fullname, user_path(story.user) %></h3>
+          <span class="story-links-count"><%= story.links_count %> links</span>
+        </div>
+        <div class="level-right">
+          <span class="story-date"><%= story.created_at.strftime('%d %b') %></span>
+        </div>
+      </div>
+      <h3 class="story-title"><%= link_to story.title, story.published_at.presence ? story_path(story) : edit_story_path(story) %></h3>
+      <div class="level story-card-footer">
+        <div class="level-left">
+          <% if story.published_at.present? %>
+            <% if current_user.likes?(story) %>
+              <%= link_to 'Unbookmark', unbookmark_story_path(story), method: :delete, remote: true %>
+            <% else %>
+              <%= link_to 'Bookmark', bookmark_story_path(story), method: :post, remote: true %>
+            <% end %>
+          <% else %>
+            <%= link_to 'Edit', edit_story_path(story), class: 'level-item' %>
+            <%= link_to 'Delete', story_path(story), method: :delete, class: 'level-item' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
